@@ -1,0 +1,28 @@
+##user_table##
+u_id
+u_name
+u_type <- unregistered/reg/admin
+u_pass
+
+##blog_table##
+b_id
+blog_name
+(fk)_u_id	<- owner
+
+##posts##
+p_id
+co_author
+(fk)_b_id	<- blog it came from
+(fk)_c_id	<- comment chain
+
+##post_comments##
+c_id 		<- comment thread
+u_id 	 	<- user who made comment
+comment 	<- their comment
+
+##user_activity##
+a_id 		<- activity id number
+(fk)u_id 	<- user who we are tracking
+(fk)p_id 	<- post they viewed/action
+action 		<- view/comment/edit/delete
+ac_ip		<- activity IP address

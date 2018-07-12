@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Message Board</title>        
+    </head>
+    <body>
+        <div class="banner-top">
+            <h1>Coding Dojo Wall</h1>
+            <p>Welcome {{ user.name }} <a href="/logout">Log Off</a></p>
+        </div>
+        <div class="mid">
+            <h2>Post a Message</h2>
+            <form action="/post_message" action="POST">
+                <textarea name="message"></textarea>
+                <input type="submit" value="Post a message">
+            </form>
+        </div>
+        <div class="bot">
+            {% for m in coms %}
+                <h2>{{ m.name }} - {{ m.date }}</h2>
+                <p>{{ m.text }}</p>
+                {% for c in messages %}
+                    &nbsp; <h2> {{ c.name }} - {{ c.date }}</h2>
+                    &nbsp; <p> {{ c.text }}</p>
+                {% endfor %}
+                <form action="/post_comment" action="POST">
+                    <textarea name="message"></textarea>
+                    <input type="submit" value="Post a comment">
+                </form>
+            {% endfor %}
+        </div>
+    </body>
+</html>

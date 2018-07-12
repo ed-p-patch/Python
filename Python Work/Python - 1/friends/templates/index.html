@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Friends</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../static/js/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <meta charset="UTF-8"/>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Occupation</th>
+            <th></th>
+        </tr>
+        {% for friend in all_friends: %}
+        <tr>
+            <td>{{ friend['id'] }}</td>
+            <td>{{ friend['first_name'] }}</td>
+            <td>{{ friend['last_name'] }}</td>
+            <td>{{ friend['occupation'] }}</td>
+            <td>
+                <form class="del_f" action="remove_friend/{{ friend['id']}}" method='POST'>
+                <input type="submit" value="Delete Forever">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="button" id="button1" value="Edit"/>
+    
+    <div id="new_f">
+        <form class="new_f" action='/friends' method='POST'>
+            <h3>Add Friend</h3>
+            <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+            <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+            <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+            <input type="text" name="type" value="new" hidden>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div id="edit_f" hidden>
+        <form action='/update_friend' method='POST'>
+            <h3>Edit</h3>
+            <label for="id">ID Matching Change<input type="text" name="u_id"></label>
+            <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+            <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+            <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+            <input type="text" name="type" value="edit" hidden>
+            <input type="submit" value="Submit changes">
+        </form>
+    </div>
+
+</body>
+</html>

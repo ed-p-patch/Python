@@ -1,0 +1,9 @@
+.box-answer{
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    display: none;
+}
+.green{
+    background: green;
+}

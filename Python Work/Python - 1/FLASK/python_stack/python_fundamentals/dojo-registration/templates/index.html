@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Registration</title>
+</head>
+<body>
+  <h1>Please Register</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form action='/process' method='POST'>
+    First Name<input type="text" name="fname">
+    Last Name<input type="text" name="lname">
+    E-Mail<input type="text" name="email">
+    Password (no greater than 8 characters) <input type="password" name="pass1">
+    Confirm Password<input type="password" name="pass2">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

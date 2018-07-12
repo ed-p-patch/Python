@@ -1,0 +1,21 @@
+pip install Django==1.11.9
+// This installed Django and Pytz
+pip list
+// This listed all modules installed
+pip install Django==1.11.9
+// This returned a message that "requirement already satisfied"
+pip freeze
+// this returned a similar list to pip list but with pip's version included as well as setup  tools
+cd ~/Desktop
+pip freeze > requirements.txt
+// the first command brought us to the desktop, and the second command executed "pip freeze" but created a file with the output
+pip uninstall Django
+// This uninstalled Django and all its packages
+pip show Django
+// this actually froze my computer and I had to restart the terminal
+// upon closing it seemed like it was still in the process
+// it showed me the PIDs and asked if I wanted to close anyways
+pip show Django
+// this showed details about Django
+pip search Flask
+// this showed "flask" in description in modules?

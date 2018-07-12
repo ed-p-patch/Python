@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Email Checker</title>
+        <script src="../static/js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/check_email/" method='POST'>
+            <label>Email Address:<input type="text" name="mail"></label>
+            <input type="submit" value="Check">
+        </form>
+        <h3>Verified Emails</h3>
+        {% for e in checked: %}
+        <h2>{{ e['email']}} || {{ e['check_time']}}</h2>
+        {% endfor %}
+    </body>
+</html>

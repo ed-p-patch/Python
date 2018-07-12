@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="../static/js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+        <h2>Register!</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/register" method="POST">
+            <label>First Name:<input type="text" name="fname"></label><br>
+            <label>Last Name:<input type="text" name="lname"></label><br>
+            <label>Email:<input type="text" name="email"></label><br>
+            <label>Desired Passowrd:<input type="password" name="pass1"></label><br>
+            <label>Confirm Passowrd:<input type="password" name="pass2"></label><br>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already signed up? Click <a href="/login">HERE</a> to login!</p>
+    </body>
+</html>
